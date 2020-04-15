@@ -6,7 +6,7 @@ pipeline {
         }
 
     stages {
-        stage("build") {
+        stage("package") {
             agent any
             steps {
                
@@ -14,6 +14,14 @@ pipeline {
                 sh 'mvn clean package' 
             }
           }
+        
+        stage('Maven build') {
+                 Steps {
+                                rtMaven.tool = "maven"
+                                buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
+                            }
+        }
+        
         stage("Ansible") {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''ansible-playbook -i /opt/docker/hosts /opt/docker/docker-create-push-webapp.yml --limit localhost

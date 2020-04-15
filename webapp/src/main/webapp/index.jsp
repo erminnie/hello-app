@@ -7,7 +7,9 @@
 	</head>
 	<body>
 		<h1>Hello All!</h1>
-		<marquee direction="right">This is a test to verify if the Ansible pipeline through Jenkinsfile is working fine</marquee>
-		<h2>Current time is <%= LocalDateTime.now() %></h2>
+		<h2>
+		<font color="red">This is a test to verify if the Ansible pipeline through Jenkinsfile is working fine!</font>
+		</h2>
+		<h3>Current time is  <%= LocalDateTime.now() %></h3>
 	</body>
 </html>

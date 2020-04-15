@@ -11,7 +11,8 @@ pipeline {
             steps {
                
                 slackSend channel: '#devops-casestudy-group7', message: 'slackSend "started Pipeline-by-JenkinsFile"', teamDomain: 'devops-casestudy', tokenCredentialId: 'slack-key'  
-                sh 'mvn clean package' 
+                //sh 'mvn clean package' 
+                sh 'mvn -f pom.xml clean package'
             }
           }
          stage("Ansible") {

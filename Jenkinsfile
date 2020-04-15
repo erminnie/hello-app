@@ -14,15 +14,7 @@ pipeline {
                 sh 'mvn clean package' 
             }
           }
-        
-        stage('Maven build') {
-                 steps {
-                                
-                                buildInfo = maven.run pom: 'pom.xml', goals: 'clean install'
-                            }
-        }
-        
-        stage("Ansible") {
+         stage("Ansible") {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''ansible-playbook -i /opt/docker/hosts /opt/docker/docker-create-push-webapp.yml --limit localhost
 

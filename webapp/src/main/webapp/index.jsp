@@ -8,7 +8,7 @@
 	<body>
 		<h1>Hello All!</h1>
 		<h2>
-		<font color="red">This is a test to verify if the Ansible pipeline through Jenkinsfile is working fine!Anto</font>
+		<font color="red">This is a test to verify if the Ansible pipeline through Jenkinsfile is working fine!</font>
 		</h2>
 		<h3>Current time is  <%= LocalDateTime.now() %></h3>
 	</body>
